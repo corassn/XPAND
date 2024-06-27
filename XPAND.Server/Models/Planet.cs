@@ -6,20 +6,23 @@ using XPAND.Server.Mongo;
 namespace XPAND.Server.Models
 {
     [BsonCollection("Planets")]
-    [BsonDiscriminator("Planet")]
     public class Planet : BaseDocument
     {
         [Required]
+        [BsonElement("name")]
         public string Name { get; set; }
 
+        [BsonElement("description")]
         public string? Description { get; set; }
 
+        [BsonElement("imageUrl")]
         public string? ImageUrl { get; set; }
 
         [Required]
+        [BsonElement("status")]
         public PlanetStatus Status { get; set; }
 
-        // should think about this: The planet has a number of robots that are exploring it
+        [BsonElement("robots")]
         public int Robots { get; set; }
 
         public Planet()

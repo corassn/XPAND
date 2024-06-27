@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Amazon.Runtime.Internal;
+using AutoMapper;
 using XPAND.Server.Exceptions;
 using XPAND.Server.Models;
 using XPAND.Server.Models.DTOs;
@@ -29,7 +30,7 @@ namespace XPAND.Server.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError("An error occured while trying to fetch the planets.");
+                _logger.LogError(ex, "An error occured while trying to fetch the planets.");
                 throw new ServiceException("An error occured while trying to fetch the planets.", ex);
             }
         }
@@ -40,11 +41,17 @@ namespace XPAND.Server.Services
             {
                 var planet = await _planetRepostory.FindByIdAsync(id);
 
-                return _mapper.Map<PlanetDto>(planet);
+                if (planet == null)
+                {
+                    _logger.LogWarning($"Planet with ID {id} was not found.");
+                    throw new ServiceException($"Planet with ID {id} was not found.");
+                }
+
+                    return _mapper.Map<PlanetDto>(planet);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occured while trying to get the planet with ID {id}.");
+                _logger.LogError(ex, $"An error occured while trying to get the planet with ID {id}.");
                 throw new ServiceException($"An error occured while trying to get the planet with ID {id}.", ex);
             }
         }
@@ -69,7 +76,7 @@ namespace XPAND.Server.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occured while trying to update the planet status with ID {request.PlanetId}.");
+                _logger.LogError(ex, $"An error occured while trying to update the planet status with ID {request.PlanetId}.");
                 throw new ServiceException("An error occured while trying to update the planet status.", ex);
             }
         }
@@ -86,7 +93,7 @@ namespace XPAND.Server.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError("An error occured while trying to insert a planet.");
+                _logger.LogError(ex, "An error occured while trying to insert a planet.");
                 throw new ServiceException("An error occured while trying to insert a planet.", ex);
             }
         }
@@ -99,7 +106,7 @@ namespace XPAND.Server.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occured while trying to delete planet with ID {id}.");
+                _logger.LogError(ex, $"An error occured while trying to delete planet with ID {id}.");
                 throw new ServiceException($"An error occured while trying to delete planet with ID {id}.", ex);
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using XPAND.Server.Exceptions;
 using XPAND.Server.Models;
+using XPAND.Server.Models.DTOs;
 using XPAND.Server.Services;
 
 namespace XPAND.Server.Controllers
@@ -28,12 +29,12 @@ namespace XPAND.Server.Controllers
             }
             catch (ServiceException ex)
             {
-                _logger.LogError(ex, "A service exception occured while processing GetAllPlanets.");
+                _logger.LogError(ex, "A service exception occured while processing 'GetAllPlanets'.");
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An unexpected error occurred while processing GetPlanets.");
+                _logger.LogError(ex, "An unexpected error occurred while processing 'GetPlanets'.");
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
@@ -53,14 +54,41 @@ namespace XPAND.Server.Controllers
 
                 return Ok(planetResponse);
             }
-            catch (ServiceException ex) 
+            catch (ServiceException ex)
             {
-                _logger.LogError(ex, "A service exception occured while processing GetPlanedById.");
+                _logger.LogError(ex, "A service exception occured while processing 'GetPlanetById'.");
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An unexpected error occurred while processing GetPlanedById.");
+                _logger.LogError(ex, "An unexpected error occurred while processing 'GetPlanetById'.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<PlanetDto>> UpdatePlanet([FromBody] UpdatePlanetDto request)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(request.PlanetId))
+                {
+                    _logger.LogWarning("Invalid planet ID format.");
+                    return BadRequest("Invalid planet ID format.");
+                }
+
+                var planetResponse = await _planetService.UpdatePlanet(request);
+
+                return Ok(planetResponse);
+            }
+            catch (ServiceException ex)
+            {
+                _logger.LogError(ex, "A service exception occured while processing 'UpdatePlanet'.");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while processing 'UpdatePlanet'.");
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }

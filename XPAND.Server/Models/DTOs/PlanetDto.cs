@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using XPAND.Server.Enums;
-using XPAND.Server.Mongo;
 
 namespace XPAND.Server.Models
 {
-    public class PlanetDto : BaseDocument
+    public class PlanetDto
     {
+        public string Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 

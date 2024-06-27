@@ -1,18 +1,17 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson;
-using System.ComponentModel.DataAnnotations;
 using XPAND.Server.Mongo;
 
 namespace XPAND.Server.Models
 {
     [BsonCollection("Teams")]
-    [BsonDiscriminator("Team")]
     public class Team : BaseDocument
     {
-         public string Captain { get; set; } //should I make classes for Captain and robots also??
+        [BsonElement("captain")]
+        public string Captain { get; set; }
 
-        public int RobotsNumber { get; set; }
+        [BsonElement("robots")]
+        public int Robots { get; set; }
 
         public Team()
         {
