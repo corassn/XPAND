@@ -1,13 +1,10 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using XPAND.Server.Enums;
 using XPAND.Server.Mongo;
 
 namespace XPAND.Server.Models
 {
-    [BsonCollection("Planets")]
-    [BsonDiscriminator("Planet")]
-    public class Planet : BaseDocument
+    public class PlanetDto : BaseDocument
     {
         [Required]
         public string Name { get; set; }
@@ -19,10 +16,9 @@ namespace XPAND.Server.Models
         [Required]
         public PlanetStatus Status { get; set; }
 
-        // should think about this: The planet has a number of robots that are exploring it
         public int Robots { get; set; }
 
-        public Planet()
+        public PlanetDto()
         {
             Name = string.Empty;
             ImageUrl = string.Empty;

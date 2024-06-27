@@ -46,9 +46,15 @@ namespace XPAND.Server.Mongo.Repository
 
         private static string GetCollectionName(Type documentType)
         {
-            return ((BsonCollectionAttribute)documentType.GetCustomAttributes(
-                    typeof(BsonCollectionAttribute), true)
-                .FirstOrDefault()).CollectionName;
+            var attribute = documentType.GetCustomAttributes(typeof(BsonCollectionAttribute), true)
+                                        .FirstOrDefault() as BsonCollectionAttribute;
+
+            if (attribute == null)
+            {
+                throw new InvalidOperationException($"The document type {documentType.Name} does not have a BsonCollectionAttribute.");
+            }
+
+            return attribute.CollectionName;
         }
     }
 }
