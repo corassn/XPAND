@@ -1,4 +1,6 @@
-﻿namespace XPAND.Server.Mongo.Repository
+﻿using XPAND.Server.Models;
+
+namespace XPAND.Server.Mongo.Repository
 {
     public interface IMongoRepository<TDocument> where TDocument : BaseDocument
     {

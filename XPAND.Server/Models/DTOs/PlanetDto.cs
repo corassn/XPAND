@@ -5,6 +5,7 @@ namespace XPAND.Server.Models
 {
     public class PlanetDto
     {
+        [Required]
         public string Id { get; set; }
 
         [Required]
