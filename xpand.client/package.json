@@ -9,7 +9,9 @@
     "test": "ng test",
     "prestart": "node aspnetcore-https",
     "start:windows": "ng serve --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\" --host=127.0.0.1",
-    "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1"
+    "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1",
+    "generate:api": "openapi-generator-cli generate -i swagger.json -g typescript-angular -o openapi -p=removeOperationIdPrefix=true --additional-properties fileNaming=kebab-case,modelPropertyNaming=camelCase,stringEnums=true"
+
   },
   "private": true,
   "dependencies": {
@@ -21,11 +23,12 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@openapitools/openapi-generator-cli": "^2.13.4",
+    "jest-editor-support": "*",
+    "run-script-os": "*",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3",
-    "jest-editor-support": "*",
-    "run-script-os": "*"
+    "zone.js": "~0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.5",

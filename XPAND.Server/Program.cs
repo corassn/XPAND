@@ -1,4 +1,6 @@
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
+using XPAND.Server;
 using XPAND.Server.MappingProfiles;
 using XPAND.Server.Models;
 using XPAND.Server.Mongo.Configuration;
@@ -27,7 +29,11 @@ builder.Services.AddScoped<IPlanetService, PlanetService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "EXPAND.Server", Version = "v1" });
+    c.SchemaFilter<EnumSchemaFilter>();
+});
 
 var app = builder.Build();
 
