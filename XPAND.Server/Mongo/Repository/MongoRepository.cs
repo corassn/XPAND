@@ -18,7 +18,7 @@ namespace XPAND.Server.Mongo.Repository
         public Task DeleteByIdAsync(string id)
         {
             var filter = Builders<TDocument>.Filter.Eq(d => d.Id, id);
-            return _collection.DeleteOneAsync(id);
+            return _collection.DeleteOneAsync(filter);
         }
 
         public async Task<TDocument> FindByIdAsync(string id)

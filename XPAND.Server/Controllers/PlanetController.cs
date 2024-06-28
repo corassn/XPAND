@@ -92,5 +92,47 @@ namespace XPAND.Server.Controllers
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult<PlanetDto>> AddPlanet([FromBody] AddPlanetDto request)
+        {
+            try
+            {
+                var planetResponse = await _planetService.AddPlanet(request);
+
+                return Ok(planetResponse);
+            }
+            catch (ServiceException ex)
+            {
+                _logger.LogError(ex, "A service exception occured while processing 'AddPlanet'.");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while processing 'AddPlanet'.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<PlanetDto>> DeletePlanet(string id)
+        {
+            try
+            {
+                await _planetService.DeletePlanetById(id);
+
+                return Ok();
+            }
+            catch (ServiceException ex)
+            {
+                _logger.LogError(ex, "A service exception occured while processing 'DeletePlanet'.");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred while processing 'DeletePlanet'.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
     }
 }

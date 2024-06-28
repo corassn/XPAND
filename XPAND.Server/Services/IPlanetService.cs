@@ -11,7 +11,7 @@ namespace XPAND.Server.Services
 
         Task<PlanetDto> UpdatePlanet(UpdatePlanetDto request);
 
-        Task<PlanetDto> AddPlanet(PlanetDto planetDto);
+        Task<PlanetDto> AddPlanet(AddPlanetDto request);
 
         Task DeletePlanetById(string id);
     }

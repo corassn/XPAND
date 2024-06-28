@@ -81,11 +81,11 @@ namespace XPAND.Server.Services
             }
         }
 
-        public async Task<PlanetDto> AddPlanet(PlanetDto planetDto)
+        public async Task<PlanetDto> AddPlanet(AddPlanetDto request)
         {
             try
             {
-                var planet = _mapper.Map<Planet>(planetDto);
+                var planet = _mapper.Map<Planet>(request);
                 var planetResponse = await _planetRepostory.InsertAsync(planet);
 
                 return _mapper.Map<PlanetDto>(planetResponse);

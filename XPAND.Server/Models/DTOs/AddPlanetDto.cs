@@ -3,10 +3,8 @@ using XPAND.Server.Enums;
 
 namespace XPAND.Server.Models
 {
-    public class PlanetDto
+    public class AddPlanetDto
     {
-        [Required]
-        public string Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -20,7 +18,7 @@ namespace XPAND.Server.Models
 
         public int Robots { get; set; }
 
-        public PlanetDto()
+        public AddPlanetDto()
         {
             Name = string.Empty;
             ImageUrl = string.Empty;
@@ -28,4 +26,3 @@ namespace XPAND.Server.Models
         }
     }
 }
-
