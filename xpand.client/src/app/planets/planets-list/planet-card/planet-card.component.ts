@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-planet-card',
+  selector: 'planet-card',
   templateUrl: './planet-card.component.html',
   styleUrl: './planet-card.component.scss'
 })

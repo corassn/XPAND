@@ -1,0 +1,35 @@
+body {
+ font-family: 'Poppins', sans-serif;
+}
+
+.text-common {
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-xs {
+    @extend .text-common;
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    @extend .text-common;
+    font-size: 0.875rem;
+}
+
+// font size 16px
+.text-md {
+    @extend .text-common;
+    font-size: 1rem;
+}
+
+.text-lg {
+    @extend .text-common;
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    @extend .text-common;
+    font-size: 1.25rem;
+  }

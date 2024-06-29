@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+
+.content {
+    color: $light-red;
+    background: $red-gradient;
+    padding: 1rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-height: 1.5rem !important;
+        width: auto;
+    }
+}
