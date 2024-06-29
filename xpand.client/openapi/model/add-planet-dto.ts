@@ -12,8 +12,7 @@
 import { PlanetStatus } from './planet-status';
 
 
-export interface PlanetDto { 
-    id: string;
+export interface AddPlanetDto { 
     name: string;
     description?: string | null;
     imageUrl?: string | null;

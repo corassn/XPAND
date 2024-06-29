@@ -12,9 +12,9 @@
 
 
 export enum PlanetStatus {
-    OK = 0,
-    Not_OK = 1,
-    ToDo = 2,
-    EnRoute = 3
+    ToDo = 0,
+    EnRoute = 1,
+    OK = 2,
+    Not_OK = 3
 }
 

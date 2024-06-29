@@ -1,86 +1,39 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "EXPAND.Server",
-      "version": "v1"
-    },
-    "paths": {
-      "/api/planets": {
-        "get": {
-          "tags": [
-            "Planet"
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PlanetDto"
-                    }
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PlanetDto"
-                    }
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/PlanetDto"
-                    }
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EXPAND.Server",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/planets": {
+      "get": {
+        "tags": [
+          "Planet"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlanetDto"
                   }
                 }
-              }
-            }
-          }
-        },
-        "put": {
-          "tags": [
-            "Planet"
-          ],
-          "requestBody": {
-            "content": {
+              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdatePlanetDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlanetDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdatePlanetDto"
-                }
-              },
-              "application/*+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdatePlanetDto"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PlanetDto"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PlanetDto"
-                  }
-                },
-                "text/json": {
-                  "schema": {
+                  "type": "array",
+                  "items": {
                     "$ref": "#/components/schemas/PlanetDto"
                   }
                 }
@@ -89,39 +42,92 @@
           }
         }
       },
-      "/api/planets/{id}": {
-        "get": {
-          "tags": [
-            "Planet"
-          ],
-          "parameters": [
-            {
-              "name": "id",
-              "in": "path",
-              "required": true,
+      "put": {
+        "tags": [
+          "Planet"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/UpdatePlanetDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlanetDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePlanetDto"
               }
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "text/plain": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PlanetDto"
-                  }
-                },
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PlanetDto"
-                  }
-                },
-                "text/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/PlanetDto"
-                  }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Planet"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddPlanetDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddPlanetDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddPlanetDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
                 }
               }
             }
@@ -129,77 +135,184 @@
         }
       }
     },
-    "components": {
-      "schemas": {
-        "PlanetDto": {
-          "required": [
-            "name",
-            "status"
-          ],
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "minLength": 1,
+    "/api/planets/{id}": {
+      "get": {
+        "tags": [
+          "Planet"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string"
-            },
-            "description": {
-              "type": "string",
-              "nullable": true
-            },
-            "imageUrl": {
-              "type": "string",
-              "nullable": true
-            },
-            "status": {
-              "$ref": "#/components/schemas/PlanetStatus"
-            },
-            "robots": {
-              "type": "integer",
-              "format": "int32"
             }
-          },
-          "additionalProperties": false
-        },
-        "PlanetStatus": {
-          "enum": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "type": "integer",
-          "format": "int32",
-          "x-enum-varnames": [
-            "OK",
-            "Not_OK",
-            "ToDo",
-            "EnRoute"
-          ]
-        },
-        "UpdatePlanetDto": {
-          "required": [
-            "planetId"
-          ],
-          "type": "object",
-          "properties": {
-            "planetId": {
-              "minLength": 1,
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Planet"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string"
-            },
-            "status": {
-              "$ref": "#/components/schemas/PlanetStatus"
-            },
-            "description": {
-              "type": "string",
-              "nullable": true
             }
-          },
-          "additionalProperties": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanetDto"
+                }
+              }
+            }
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "AddPlanetDto": {
+        "required": [
+          "name",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/PlanetStatus"
+          },
+          "robots": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanetDto": {
+        "required": [
+          "id",
+          "name",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/PlanetStatus"
+          },
+          "robots": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlanetStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32",
+        "x-enum-varnames": [
+          "ToDo",
+          "EnRoute",
+          "OK",
+          "Not_OK"
+        ]
+      },
+      "UpdatePlanetDto": {
+        "required": [
+          "planetId"
+        ],
+        "type": "object",
+        "properties": {
+          "planetId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PlanetStatus"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   }
+}

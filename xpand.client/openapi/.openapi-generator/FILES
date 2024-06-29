@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 api.module.ts
 api/api.ts
@@ -8,6 +7,7 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/add-planet-dto.ts
 model/models.ts
 model/planet-dto.ts
 model/planet-status.ts
