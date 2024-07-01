@@ -1,28 +1,107 @@
 @import '../../../../colors.scss';
+@import '../../../../typography.scss';
 
 .content {
+    @extend .text-sm;
     margin-bottom: 1rem;
-    padding: 0.5rem;
     display: flex;
+    padding: 0.5rem;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    //background-color: $light-red;
+
+    .mat-mdc-card-content {
+        padding: 0.5rem;
+    }
 
     .section {
         display: flex;
         flex-direction: column;
 
         &.left {
-            width: 30%;
+            width: 25%;
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-bottom: 0.5rem;
+                width: 4rem;
+                height: auto;
+            }
+
+            .planet-name {
+                font-weight: 700;
+                text-align: center;
+            }
         }
 
         &.middle {
-            width: 100%;
+            width: 50%;
         }
 
         &.right {
-            width: 20%;
+            width: 25%;
+
+            .planet-status {
+                font-weight: 700;
+                text-align: right;
+
+                &.blue {
+                    color: $blue-en-route;
+                }
+
+                &.grey {
+                    color: $grey-todo;
+                }
+
+                &.green {
+                    color: $green-ok;
+                }
+
+                &.red {
+                    color: $red-not-ok;
+                }
+            }
+        }
+    }
+}
+
+/* for tablets */
+@media (min-width: 600px) and (max-width: 900px) {
+    .content {
+        font-size: 1rem;
+
+        .mat-mdc-card-content {
+            padding: 0 1rem;
+        }
+
+        .section {
+            &.left {
+                img {
+                    width: 5rem;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+/* for laptops or larger screens */
+@media (min-width: 900px) {
+    .content {
+        font-size: 1rem;
+
+        .mat-mdc-card-content {
+            padding: 0 2rem;
+        }
+
+        .section {
+            &.left {
+                img {
+                    width: 6rem;
+                    height: auto;
+                }
+            }
         }
     }
 }

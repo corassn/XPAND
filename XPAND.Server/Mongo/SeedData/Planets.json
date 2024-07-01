@@ -2,105 +2,105 @@
   {
     "name": "Exoplanet Alpha",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/3521/3521388.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 1,
     "robots": 0
   },
   {
     "name": "Zeta Proxima",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/8966/8966713.png?ga=GA1.1.49837800.1719673445",
     "status": 0,
     "robots": 0
   },
   {
     "name": "Gamma Prime",
     "description": "Just a rocky planet in the Gamma system.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/5186/5186333.png?ga=GA1.1.49837800.1719673445",
     "status": 3,
     "robots": 7
   },
   {
     "name": "Vega II",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/8605/8605985.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 0,
     "robots": 0
   },
   {
     "name": "Kepler-22b",
     "description": "An Earth-like planet in the habitable zone.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/14214/14214039.png?ga=GA1.1.49837800.1719673445",
     "status": 2,
     "robots": 10
   },
   {
     "name": "Trappist-1e",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/13592/13592191.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 0,
     "robots": 10
   },
   {
     "name": "Wolf 1061c",
     "description": "A habitable planet orbiting the star Wolf 1061.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/8966/8966870.png?ga=GA1.1.49837800.1719673445",
     "status": 2,
     "robots": 15
   },
   {
     "name": "Proxima Centauri b",
     "description": "The closest habitable exoplanet to the Solar System.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/1682/1682721.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 2,
     "robots": 9
   },
   {
     "name": "Gliese 581g",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/3521/3521350.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 1,
     "robots": 0
   },
   {
     "name": "HD 40307g",
     "description": "A super-Earth in the habitable zone.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/5186/5186306.png?ga=GA1.1.49837800.1719673445",
     "status": 2,
     "robots": 6
   },
   {
     "name": "Luyten b",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/8966/8966740.png?ga=GA1.1.49837800.1719673445",
     "status": 1,
     "robots": 0
   },
   {
     "name": "Ross 128b",
     "description": "A very hot planet orbiting the red dwarf Ross 128.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/7105/7105663.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 3,
     "robots": 20
   },
   {
     "name": "Teegarden's Star b",
     "description": "Terrible",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/3521/3521206.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 3,
     "robots": 3
   },
   {
     "name": "K2-18b",
     "description": "A super-Earth very cool for habitability.",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/645/645439.png?uid=R16324495&ga=GA1.1.49837800.1719673445",
     "status": 2,
     "robots": 13
   },
   {
     "name": "Barnard's Star b",
     "description": "",
-    "imageUrl": "",
+    "imageUrl": "https://cdn-icons-png.freepik.com/512/3521/3521483.png?ga=GA1.1.49837800.1719673445",
     "status": 0,
     "robots": 0
   }

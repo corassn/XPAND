@@ -14,4 +14,17 @@ export class PlanetStatusUtils {
                 return NOT_OK;
         }
     }
+
+    static getPlanetStatusCssClass(status: PlanetStatus): string {
+        switch(status) {
+            case PlanetStatus.EnRoute:
+                return 'blue';
+            case PlanetStatus.ToDo:
+                return 'grey';
+            case PlanetStatus.OK:
+                return 'green';
+            case PlanetStatus.Not_OK:
+                return 'red';
+        }
+    }
 }

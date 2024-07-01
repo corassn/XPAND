@@ -13,6 +13,7 @@ export class PlanetCardComponent implements OnInit {
 
   noDescriptionText: string = 'No description yet!';
   status: string = '';
+  cssClass: string = '';
 
   constructor(private router: Router, private route: ActivatedRoute) {
   }
@@ -20,6 +21,7 @@ export class PlanetCardComponent implements OnInit {
   ngOnInit(): void {
     if (this.planet) {
       this.status = PlanetStatusUtils.getPlanetStatusDescription(this.planet.status);
+      this.cssClass = PlanetStatusUtils.getPlanetStatusCssClass(this.planet.status);
     }
   }
 

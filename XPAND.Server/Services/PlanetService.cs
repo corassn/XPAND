@@ -47,7 +47,7 @@ namespace XPAND.Server.Services
                     throw new ServiceException($"Planet with ID {id} was not found.");
                 }
 
-                    return _mapper.Map<PlanetDto>(planet);
+                return _mapper.Map<PlanetDto>(planet);
             }
             catch (Exception ex)
             {
@@ -86,6 +86,12 @@ namespace XPAND.Server.Services
             try
             {
                 var planet = _mapper.Map<Planet>(request);
+
+                if (planet.ImageUrl == null)
+                {
+                    planet.ImageUrl = "https://cdn-icons-png.freepik.com/512/6704/6704341.png?ga=GA1.1.49837800.1719673445";
+                }
+
                 var planetResponse = await _planetRepostory.InsertAsync(planet);
 
                 return _mapper.Map<PlanetDto>(planetResponse);
