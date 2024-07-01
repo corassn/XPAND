@@ -1,1 +1,7 @@
-<p>planets-list works!</p>
+<div *ngIf="planets$ | async as planets">
+    <ul>
+        <li *ngFor="let planet of planets">
+            {{ planet.name }}
+        </li>
+    </ul>
+</div>

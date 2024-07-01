@@ -41,6 +41,17 @@ builder.Services.AddSwaggerGen(c =>
     c.SchemaFilter<EnumSchemaFilter>();
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -52,6 +63,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAllOrigins");
+
+app.UseRouting();
 
 app.UseHttpsRedirection();
 
