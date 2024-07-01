@@ -12,5 +12,12 @@ namespace XPAND.Server.Models
         [BsonRepresentation(BsonType.String)]
         [BsonIgnoreIfDefault]
         public string Id { get; set; }
+
+        [Required]
+        [BsonElement("name")]
+        public string Name { get; set; }
+
+        //createdAt
+        //modifiedAt
     }
 }

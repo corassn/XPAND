@@ -2,6 +2,8 @@
 {
     public interface IDataSeeder
     {
-        Task SeedAsync();
+        Task SeedPlanetsAsync();
+
+        Task SeedTeamsAsync();
     }
 }

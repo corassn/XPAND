@@ -5,9 +5,11 @@ using XPAND.Server.MappingProfiles;
 using XPAND.Server.Models;
 using XPAND.Server.Mongo.Configuration;
 using XPAND.Server.Mongo.Repository;
+using XPAND.Server.Mongo.Repository.Implementation;
 using XPAND.Server.Mongo.SeedData;
 using XPAND.Server.Mongo.SeedData.PathConfig;
 using XPAND.Server.Services;
+using XPAND.Server.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,8 +31,12 @@ builder.Services.AddSingleton<IMongoDbSettings>(serviceProvider => serviceProvid
 builder.Services.AddSingleton<IDataSeedSettings>(serviceProvider => serviceProvider.GetRequiredService<IOptions<DataSeedSettings>>().Value);
 
 builder.Services.AddSingleton<IMongoRepository<Planet>, MongoRepository<Planet>>();
+builder.Services.AddSingleton<IMongoRepository<Team>, MongoRepository<Team>>();
+builder.Services.AddSingleton<IMongoRepository<Captain>, MongoRepository<Captain>>();
+builder.Services.AddSingleton<IMongoRepository<Robot>, MongoRepository<Robot>>();
 
 builder.Services.AddScoped<IPlanetService, PlanetService>();
+builder.Services.AddScoped<ITeamService, TeamService>();
 builder.Services.AddTransient<IDataSeeder, DataSeeder>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -79,7 +85,8 @@ app.MapFallbackToFile("/index.html");
 using (var scope = app.Services.CreateScope())
 {
     var dataSeeder = scope.ServiceProvider.GetRequiredService<IDataSeeder>();
-    dataSeeder.SeedAsync().Wait();
+    dataSeeder.SeedPlanetsAsync().Wait();
+    dataSeeder.SeedTeamsAsync().Wait();
 }
 
 app.Run();

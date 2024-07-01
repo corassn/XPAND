@@ -5,7 +5,7 @@ using XPAND.Server.Models;
 using XPAND.Server.Models.DTOs;
 using XPAND.Server.Mongo.Repository;
 
-namespace XPAND.Server.Services
+namespace XPAND.Server.Services.Implementation
 {
     public class PlanetService : IPlanetService
     {

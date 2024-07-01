@@ -16,13 +16,6 @@ namespace XPAND.Server.Models
         [Required]
         public PlanetStatus Status { get; set; }
 
-        public int Robots { get; set; }
-
-        public AddPlanetDto()
-        {
-            Name = string.Empty;
-            ImageUrl = string.Empty;
-            Description = string.Empty;
-        }
+        public string TeamId { get; set; }
     }
 }

@@ -9,17 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PlanetStatus } from './planet-status';
 
 
-export interface PlanetDto { 
-    id: string;
-    name: string;
-    description?: string | null;
-    imageUrl?: string | null;
-    status: PlanetStatus;
-    teamId?: string | null;
+export interface CaptainDto { 
+    id?: string | null;
+    name?: string | null;
 }
-
-
 

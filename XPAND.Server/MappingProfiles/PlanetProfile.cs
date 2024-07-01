@@ -20,7 +20,7 @@ namespace XPAND.Server.MappingProfiles
                     .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                     .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
-                    .ForMember(dest => dest.Robots, opt => opt.MapFrom(src => src.Robots))
+                    .ForMember(dest => dest.TeamId, opt => opt.MapFrom(src => src.TeamId))
                     .ReverseMap();
 
             CreateMap<Planet, AddPlanetDto>()
@@ -28,7 +28,7 @@ namespace XPAND.Server.MappingProfiles
                     .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                     .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
-                    .ForMember(dest => dest.Robots, opt => opt.MapFrom(src => src.Robots))
+                    .ForMember(dest => dest.TeamId, opt => opt.MapFrom(src => src.TeamId))
                     .ReverseMap();
         }
     }

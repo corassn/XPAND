@@ -17,7 +17,7 @@ export interface AddPlanetDto {
     description?: string | null;
     imageUrl?: string | null;
     status: PlanetStatus;
-    robots?: number;
+    teamId?: string | null;
 }
 
 

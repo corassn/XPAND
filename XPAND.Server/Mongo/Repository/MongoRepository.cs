@@ -1,9 +1,8 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using XPAND.Server.Models;
 using XPAND.Server.Mongo.Configuration;
 
-namespace XPAND.Server.Mongo.Repository
+namespace XPAND.Server.Mongo.Repository.Implementation
 {
     public class MongoRepository<TDocument> : IMongoRepository<TDocument> where TDocument : BaseDocument
     {

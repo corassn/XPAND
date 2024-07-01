@@ -7,15 +7,10 @@ namespace XPAND.Server.Models
     [BsonCollection("Teams")]
     public class Team : BaseDocument
     {
-        [BsonElement("captain")]
-        public string Captain { get; set; }
+        [BsonElement("captainId")]
+        public string CaptainId { get; set; }
 
-        [BsonElement("robots")]
-        public int Robots { get; set; }
-
-        public Team()
-        {
-            Captain = string.Empty;
-        }
+        [BsonElement("robotIds")]
+        public ICollection<string> RobotIds { get; set; } = new List<string>();
     }
 }
