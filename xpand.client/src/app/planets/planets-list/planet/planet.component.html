@@ -1,1 +1,26 @@
-{{planet?.name}} papi
+<div class="content">
+    <img [src]="planet?.imageUrl" alt="planet image">
+    <div class="name"><b>
+            {{planet?.name | uppercase}}
+        </b></div>
+    <div *ngIf="planet?.description; else noDescription" class="description">
+        "{{planet?.description}}"
+        <em>- Captain: Hook</em>
+    </div>
+    <ng-template #noDescription>
+        <div class="description">{{ noDescriptionText }}</div>
+    </ng-template>
+    <div class="robots">
+        Robots involved in exploration: {{planet?.robots || noneText}}
+    </div>
+    <div class="status">
+        Status:
+        <span class="planet-status" [ngClass]="cssClass">
+            <b>{{status}}</b>
+        </span>
+    </div>
+</div>
+<hr>
+<div class="edit">
+
+</div>

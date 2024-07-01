@@ -1,12 +1,14 @@
-<mat-card *ngIf="planet" class="content" (click)="onPlanetClick(planet.name)">
+<mat-card *ngIf="planet" class="content" (click)="onPlanetClick(planet)">
     <mat-card-content class="section left">
         <img [src]="planet.imageUrl">
-        <div class="planet-name">{{planet.name | uppercase}}</div>
+        <div class="planet-name"><b>
+                {{planet.name | uppercase}}
+            </b></div>
     </mat-card-content>
 
     <div *ngIf="planet.description; else noDescription" class="section middle">
         <mat-card-content>
-            <div>{{planet.description}}</div>
+            <div class="description">"{{planet.description}}"</div>
             <div>{{planet.robots}}</div>
         </mat-card-content>
     </div>
@@ -17,7 +19,8 @@
     </ng-template>
 
     <mat-card-content class="section right">
-        <div class="planet-status"
-        [ngClass]="cssClass">{{status}}</div>
+        <div class="planet-status" [ngClass]="cssClass"><b>
+                {{status}}
+            </b></div>
     </mat-card-content>
 </mat-card>

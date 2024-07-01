@@ -1,0 +1,65 @@
+@import '../../../../typography.scss';
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+
+    img {
+        width: 7rem;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    .name {
+        @extend .text-lg;
+    }
+
+    .description {
+        padding-top: 1rem;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    .robots {
+        padding-top: 1rem;
+    }
+
+    .status {
+        padding-top: 1rem;
+    }
+}
+
+/* for tablets */
+@media (min-width: 600px) and (max-width: 900px) {
+    .content {
+        img {
+            width: 8rem;
+            height: auto;
+        }
+
+        .name {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+/* for laptops or larger screens */
+@media (min-width: 900px) {
+    .content {
+        img {
+            width: 9rem;
+            height: auto;
+        }
+
+        .name {
+            font-size: 1.35rem;
+        }
+    }
+}
+
+hr {
+    height: 1px;
+    margin: 2rem;
+}

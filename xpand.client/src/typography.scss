@@ -1,5 +1,5 @@
 body {
- font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .text-common {
@@ -32,4 +32,4 @@ body {
 .text-xl {
     @extend .text-common;
     font-size: 1.25rem;
-  }
+}

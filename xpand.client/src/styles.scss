@@ -10,3 +10,21 @@ body {
 body {
     margin: 0;
 }
+
+.planet-status {
+    &.blue {
+        color: $blue-en-route;
+    }
+
+    &.grey {
+        color: $grey-todo;
+    }
+
+    &.green {
+        color: $green-ok;
+    }
+
+    &.red {
+        color: $red-not-ok;
+    }
+}

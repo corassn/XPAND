@@ -19,7 +19,7 @@
         flex-direction: column;
 
         &.left {
-            width: 25%;
+            width: 20%;
             display: flex;
             align-items: center;
 
@@ -30,37 +30,28 @@
             }
 
             .planet-name {
-                font-weight: 700;
                 text-align: center;
             }
         }
 
         &.middle {
-            width: 50%;
+            width: 60%;
+
+            .description {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: justify;
+            }
         }
 
         &.right {
-            width: 25%;
+            width: 20%;
 
             .planet-status {
-                font-weight: 700;
                 text-align: right;
-
-                &.blue {
-                    color: $blue-en-route;
-                }
-
-                &.grey {
-                    color: $grey-todo;
-                }
-
-                &.green {
-                    color: $green-ok;
-                }
-
-                &.red {
-                    color: $red-not-ok;
-                }
             }
         }
     }
