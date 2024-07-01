@@ -1,0 +1,28 @@
+@import '../../../../colors.scss';
+
+.content {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    //background-color: $light-red;
+
+    .section {
+        display: flex;
+        flex-direction: column;
+
+        &.left {
+            width: 30%;
+        }
+
+        &.middle {
+            width: 100%;
+        }
+
+        &.right {
+            width: 20%;
+        }
+    }
+}

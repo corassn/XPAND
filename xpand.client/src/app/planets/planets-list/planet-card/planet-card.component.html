@@ -1,1 +1,22 @@
-<p>planet-card works!</p>
+<mat-card *ngIf="planet" class="content" (click)="onPlanetClick(planet.name)">
+    <mat-card-content class="section left">
+        <img [src]="planet.imageUrl">
+        <div>{{planet.name}}</div>
+    </mat-card-content>
+
+    <div *ngIf="planet.description; else noDescription" class="section middle">
+        <mat-card-content>
+            <div>{{planet.description}}</div>
+            <div>{{planet.robots}}</div>
+        </mat-card-content>
+    </div>
+    <ng-template #noDescription>
+        <mat-card-content class="section middle">
+            <div>{{noDescriptionText}}</div>
+        </mat-card-content>
+    </ng-template>
+
+    <mat-card-content class="section right">
+        <div>{{status}}</div>
+    </mat-card-content>
+</mat-card>

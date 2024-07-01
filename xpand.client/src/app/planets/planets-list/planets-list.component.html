@@ -1,7 +1,3 @@
-<div *ngIf="planets$ | async as planets">
-    <ul>
-        <li *ngFor="let planet of planets">
-            {{ planet.name }}
-        </li>
-    </ul>
+<div class="content" *ngIf="planets$ | async as planets">
+    <planet-card *ngFor="let planet of planets" [planet]="planet"></planet-card>
 </div>

@@ -4,22 +4,18 @@ import { PlanetsListComponent } from "./planets-list/planets-list.component";
 import { PlanetComponent } from "./planets-list/planet/planet.component";
 
 const routes: Routes = [
-    {
-      path: '',
-      component: PlanetsListComponent,
-    },
-    {
-      path: 'planets',
-      component: PlanetsListComponent,
-    },
-    {
-      path: 'planet/:info',
-      component: PlanetComponent,
-    },
-  ];
-  
-  @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
-  export class PlanetsRoutingModule { }
+  {
+    path: 'planets',
+    component: PlanetsListComponent,
+  },
+  {
+    path: 'planet/:info',
+    component: PlanetComponent,
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class PlanetsRoutingModule { }

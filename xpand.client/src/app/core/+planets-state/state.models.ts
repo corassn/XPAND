@@ -1,8 +1,7 @@
-import { PlanetDto } from "../../../../openapi";
 import { Planet } from "../../planets/_interfaces/planet.interface";
 
 export interface PlanetsState {
-    planets?: PlanetDto[];
+    planets?: Planet[];
     isLoadingPlanets: boolean;
     errorLoadingPlanets?: string;
 }

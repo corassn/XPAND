@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { PlanetsState } from "./state.models";
-import { PLANETS_FEATURE_NAME } from "../_constants/ngrx-constants";
+import { PLANETS_FEATURE_NAME } from "../_constants/ngrx.constants";
 
 export const selectState = createFeatureSelector<PlanetsState>(PLANETS_FEATURE_NAME);
 
