@@ -25,7 +25,7 @@ export class PlanetCardComponent implements OnInit {
     }
   }
 
-  onPlanetClick(planet: Planet): void {
-    this.router.navigate(['/planet', planet.id, planet.name], { relativeTo: this.route });
+  planetClick(planet: Planet): void {
+    this.router.navigate(['planet', planet.id, planet.name], { relativeTo: this.route });
   }
 }

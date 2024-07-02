@@ -66,18 +66,24 @@ namespace XPAND.Server.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult<PlanetDto>> UpdatePlanet([FromBody] UpdatePlanetDto request)
+        [HttpPatch("{id})")]
+        public async Task<ActionResult<PlanetDto>> UpdatePlanet(string id, [FromBody] UpdatePlanetDto request)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(request.PlanetId))
+                if(!request.PlanetId.Equals(id))
+                {
+                    _logger.LogWarning("Path ID does not match request ID.");
+                    return Conflict("Path ID does not match request ID.");
+                }
+
+                if (string.IsNullOrWhiteSpace(id))
                 {
                     _logger.LogWarning("Invalid planet ID format.");
                     return BadRequest("Invalid planet ID format.");
                 }
 
-                var planetResponse = await _planetService.UpdatePlanet(request);
+                var planetResponse = await _planetService.UpdatePlanet(id, request);
 
                 return Ok(planetResponse);
             }

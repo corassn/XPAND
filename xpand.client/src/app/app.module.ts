@@ -15,6 +15,7 @@ import { PlanetsModule } from './planets/planets.module';
 import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core/core.module';
 import { UserMenuComponent } from './user-menu/user-menu.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
     MatButtonModule,
     MatMenuModule,
     BrowserAnimationsModule,
+    SharedModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { PlanetService } from "../../_services/planet.service";
+import { PlanetService } from "../../shared/_services/planet.service";
 import * as StateActions from './state.actions';
 import { catchError, map, switchMap } from "rxjs";
 import { PlanetsState } from "./state.models";

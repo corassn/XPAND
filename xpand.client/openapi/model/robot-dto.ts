@@ -12,7 +12,7 @@
 
 
 export interface RobotDto { 
-    id?: string | null;
-    name?: string | null;
+    id: string;
+    name: string;
 }
 

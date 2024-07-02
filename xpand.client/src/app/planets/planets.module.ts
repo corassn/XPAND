@@ -7,17 +7,23 @@ import { PlanetComponent } from './planets-list/planet/planet.component';
 import { PlanetsListComponent } from './planets-list/planets-list.component';
 import { PlanetCardComponent } from './planets-list/planet-card/planet-card.component';
 import { PlanetsRoutingModule } from './planets-routing.module';
+import { AddPlanetComponent } from './add-planet/add-planet.component';
+import { EditPlanetComponent } from './planets-list/planet/edit-planet/edit-planet.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     PlanetComponent,
     PlanetsListComponent,
-    PlanetCardComponent
+    PlanetCardComponent,
+    AddPlanetComponent,
+    EditPlanetComponent
   ],
   imports: [
     CommonModule,
     PlanetsRoutingModule,
     MatCardModule,
+    MatButtonModule,
     RouterModule.forChild([
       {
         path: '',

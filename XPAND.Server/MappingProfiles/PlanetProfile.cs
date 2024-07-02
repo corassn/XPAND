@@ -12,6 +12,7 @@ namespace XPAND.Server.MappingProfiles
                     .ForMember(dest => dest.PlanetId, opt => opt.MapFrom(src => src.Id))
                     .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
                     .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+                    .ForMember(dest => dest.TeamId, opt => opt.MapFrom(src => src.TeamId))
                     .ReverseMap();
 
             CreateMap<Planet, PlanetDto>()

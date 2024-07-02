@@ -14,8 +14,9 @@ import { PlanetStatus } from './planet-status';
 
 export interface UpdatePlanetDto { 
     planetId: string;
-    status?: PlanetStatus;
+    status: PlanetStatus;
     description?: string | null;
+    teamId?: string | null;
 }
 
 

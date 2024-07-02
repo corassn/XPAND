@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlantesFacade } from '../../core/planets.facade';
+import { PlanetsFacade } from '../../core/planets.facade';
 
 @Component({
   selector: 'planets-list',
@@ -9,7 +9,7 @@ import { PlantesFacade } from '../../core/planets.facade';
 export class PlanetsListComponent implements OnInit {
   planets$ = this.planetsFacade.planets$;
 
-  constructor(private planetsFacade: PlantesFacade) { }
+  constructor(private planetsFacade: PlanetsFacade) { }
 
   ngOnInit(): void {
     this.planetsFacade.getPlanets();

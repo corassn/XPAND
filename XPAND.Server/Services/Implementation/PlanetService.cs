@@ -1,5 +1,6 @@
 ﻿using Amazon.Runtime.Internal;
 using AutoMapper;
+using XPAND.Server.Enums;
 using XPAND.Server.Exceptions;
 using XPAND.Server.Models;
 using XPAND.Server.Models.DTOs;
@@ -56,27 +57,28 @@ namespace XPAND.Server.Services.Implementation
             }
         }
 
-        public async Task<PlanetDto> UpdatePlanet(UpdatePlanetDto request)
+        public async Task<PlanetDto> UpdatePlanet(string id, UpdatePlanetDto request)
         {
             try
             {
-                var planet = _planetRepostory.FindByIdAsync(request.PlanetId).Result;
+                var planet = _planetRepostory.FindByIdAsync(id).Result;
 
                 if (planet == null)
                 {
-                    _logger.LogWarning($"Planet with ID {request.PlanetId} was not found.");
-                    throw new ServiceException($"Planet with ID {request.PlanetId} was not found.");
+                    _logger.LogWarning($"Planet with ID {id} was not found.");
+                    throw new ServiceException($"Planet with ID {id} was not found.");
                 }
 
                 planet.Status = request.Status;
                 planet.Description = request.Description;
+                planet.TeamId = request.TeamId;
                 await _planetRepostory.ReplaceAsync(planet);
 
                 return _mapper.Map<PlanetDto>(planet);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"An error occured while trying to update the planet status with ID {request.PlanetId}.");
+                _logger.LogError(ex, $"An error occured while trying to update the planet status with ID {id}.");
                 throw new ServiceException("An error occured while trying to update the planet status.", ex);
             }
         }

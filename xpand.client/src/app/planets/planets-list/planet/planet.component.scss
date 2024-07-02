@@ -1,4 +1,5 @@
 @import '../../../../typography.scss';
+@import '../../../../colors.scss';
 
 .content {
     display: flex;
@@ -29,6 +30,18 @@
     .status {
         padding-top: 1rem;
     }
+
+    hr {
+        height: 0.01rem;
+        margin: 2rem;
+        width: 90%;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
 }
 
 /* for tablets */
@@ -57,9 +70,4 @@
             font-size: 1.35rem;
         }
     }
-}
-
-hr {
-    height: 1px;
-    margin: 2rem;
 }

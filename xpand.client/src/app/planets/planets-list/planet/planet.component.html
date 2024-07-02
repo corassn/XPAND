@@ -1,17 +1,22 @@
-<div class="content">
-    <img [src]="planet?.imageUrl" alt="planet image">
+<div *ngIf="planet" class="content">
+    <img [src]="planet.imageUrl" alt="planet image">
     <div class="name"><b>
-            {{planet?.name | uppercase}}
+            {{planet.name | uppercase}}
         </b></div>
     <div *ngIf="planet?.description; else noDescription" class="description">
-        "{{planet?.description}}"
-        <em>- Captain: Hook</em>
+        "{{planet.description}}"
+        <em>- Captain: {{captainName}}</em>
     </div>
     <ng-template #noDescription>
         <div class="description">{{ noDescriptionText }}</div>
     </ng-template>
     <div class="robots">
-        <!-- Robots involved in exploration: {{planet?.robots || noneText}} -->
+        Robots involved in the exploration:
+        <span *ngFor="let robot of robotNames; let last = last">
+            {{ robot }}
+            <ng-container *ngIf="!last">, </ng-container>
+        </span>
+        <span>.</span>
     </div>
     <div class="status">
         Status:
@@ -19,8 +24,9 @@
             <b>{{status}}</b>
         </span>
     </div>
-</div>
-<hr>
-<div class="edit">
-
+    <hr>
+    <div class="actions">
+        <button mat-raised-button (click)="navigateToEdit(planet)">Edit</button>
+        <button mat-raised-button (click)="deletePlanet(planet.id)">Delete</button>
+    </div>
 </div>

@@ -9,7 +9,7 @@ namespace XPAND.Server.Services
 
         Task<PlanetDto> GetPlanetById(string id);
 
-        Task<PlanetDto> UpdatePlanet(UpdatePlanetDto request);
+        Task<PlanetDto> UpdatePlanet(string id, UpdatePlanetDto request);
 
         Task<PlanetDto> AddPlanet(AddPlanetDto request);
 

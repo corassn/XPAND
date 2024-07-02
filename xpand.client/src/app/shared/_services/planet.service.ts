@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { BaseApiService } from "./base-api.service";
-import { PlanetService as PlanetApi } from './../../../openapi/api/planet.service';
+import { PlanetService as PlanetApi } from '../../../../openapi/api/planet.service';
 import { Observable, catchError } from "rxjs";
-import { Planet } from "../planets/_interfaces/planet.interface";
-import { AddPlanet } from "../planets/_interfaces/add-planet.interface";
-import { UpdatePlanet } from "../planets/_interfaces/update-planet.interface";
+import { Planet } from "../../planets/_interfaces/planet.interface";
+import { AddPlanet } from "../../planets/_interfaces/add-planet.interface";
+import { UpdatePlanet } from "../../planets/_interfaces/update-planet.interface";
 
 @Injectable({
     providedIn: 'root',
@@ -30,7 +30,7 @@ export class PlanetService extends BaseApiService {
         return this.planetApi.apiPlanetsPost(request).pipe(catchError((error) => this.handleError(error)));
     }
 
-    updatePlanet(request: UpdatePlanet): Observable<Planet> {
-        return this.planetApi.apiPlanetsPut(request).pipe(catchError((error) => this.handleError(error)));
+    updatePlanet(id: string, request: UpdatePlanet): Observable<Planet> {
+        return this.planetApi.apiPlanetsIdPatch(id, request).pipe(catchError((error) => this.handleError(error)));
     }
 }

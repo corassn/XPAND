@@ -6,7 +6,7 @@ import * as StateActions from './+planets-state/state.actions';
 import { selectPlanets, selectPlanetsError, selectPlanetsLoading } from "./+planets-state/state.selectors";
 
 @Injectable({ providedIn: 'root' })
-export class PlantesFacade {
+export class PlanetsFacade {
     constructor(private readonly store: Store) { }
 
     planets$: Observable<Planet[] | undefined> = this.store.select(selectPlanets);
