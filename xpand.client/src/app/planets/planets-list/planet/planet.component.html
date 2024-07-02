@@ -5,12 +5,12 @@
         </b></div>
     <div *ngIf="planet?.description; else noDescription" class="description">
         "{{planet.description}}"
-        <em>- Captain: {{captainName}}</em>
+        <span *ngIf="captainName"><em>- Captain: {{captainName}}</em></span>
     </div>
     <ng-template #noDescription>
         <div class="description">{{ noDescriptionText }}</div>
     </ng-template>
-    <div class="robots">
+    <div *ngIf="robotNames" class="robots">
         Robots involved in the exploration:
         <span *ngFor="let robot of robotNames; let last = last">
             {{ robot }}

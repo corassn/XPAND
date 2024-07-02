@@ -45,6 +45,7 @@ import { SharedModule } from './shared/shared.module';
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon(`chevron-down`, this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/chevron-down.svg'));
+    this.matIconRegistry.addSvgIcon(`chevron-left`, this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/chevron-left.svg'));
     this.matIconRegistry.addSvgIcon(`more-vert`, this.domSanitizer.bypassSecurityTrustResourceUrl('./assets/images/more-vert.svg'));
   }
 }

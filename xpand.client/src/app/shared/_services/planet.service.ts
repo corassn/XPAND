@@ -31,6 +31,6 @@ export class PlanetService extends BaseApiService {
     }
 
     updatePlanet(id: string, request: UpdatePlanet): Observable<Planet> {
-        return this.planetApi.apiPlanetsIdPatch(id, request).pipe(catchError((error) => this.handleError(error)));
+        return this.planetApi.apiPlanetsIdPut(id, request).pipe(catchError((error) => this.handleError(error)));
     }
 }

@@ -1,5 +1,10 @@
 <div class="content">
-    <span class="logo"><img src="./assets/images/logo.svg" alt="XPAND"></span>
+    <span class="back-icon" [ngClass]="showBackIcon ? '' : 'hide'" (click)="navigateBack()">
+        <mat-icon svgIcon="chevron-left"></mat-icon>
+    </span>
+    <span class="logo">
+        <img src="./assets/images/logo.svg" alt="XPAND">
+    </span>
     <span class="menu-icon">
         <user-menu></user-menu>
     </span>

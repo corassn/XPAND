@@ -66,7 +66,7 @@ namespace XPAND.Server.Controllers
             }
         }
 
-        [HttpPatch("{id})")]
+        [HttpPut("{id}")]
         public async Task<ActionResult<PlanetDto>> UpdatePlanet(string id, [FromBody] UpdatePlanetDto request)
         {
             try

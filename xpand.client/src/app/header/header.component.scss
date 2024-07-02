@@ -8,13 +8,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+
+    .back-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        cursor: pointer;
+
+        mat-icon ::ng-deep svg path {
+            fill-opacity: 0.5;
+        }
+
+        &.hide {
+            visibility: hidden;
+        }
+    }
 
     .logo {
         flex: 1;
         display: flex;
         justify-content: center;
-        padding-left: 1.5rem;
 
         img {
             max-height: 1.5rem;
@@ -26,28 +39,27 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 1.5rem;
     }
 }
 
 /* for tablets */
 @media (min-width: 600px) and (max-width: 900px) {
-    .logo {
-        padding-left: 4.5rem !important;
+    .back-icon {
+        padding-left: 2.5rem !important;
     }
 
-    .menu-icon {
-        padding-right: 4.5rem !important;
+     .menu-icon {
+        padding-right: 2.5rem !important;
     }
 }
 
 /* for laptops or larger screens */
 @media (min-width: 900px) {
-    .logo {
-        padding-left: 8.5em !important;
+    .back-icon {
+        padding-left: 7em !important;
     }
 
     .menu-icon {
-        padding-right: 8.5rem !important;
+        padding-right: 7rem !important;
     }
 }

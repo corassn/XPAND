@@ -293,12 +293,12 @@ export class PlanetService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPlanetsIdPatch(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PlanetDto>;
-    public apiPlanetsIdPatch(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlanetDto>>;
-    public apiPlanetsIdPatch(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlanetDto>>;
-    public apiPlanetsIdPatch(id: string, updatePlanetDto?: UpdatePlanetDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public apiPlanetsIdPut(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PlanetDto>;
+    public apiPlanetsIdPut(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PlanetDto>>;
+    public apiPlanetsIdPut(id: string, updatePlanetDto?: UpdatePlanetDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PlanetDto>>;
+    public apiPlanetsIdPut(id: string, updatePlanetDto?: UpdatePlanetDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling apiPlanetsIdPatch.');
+            throw new Error('Required parameter id was null or undefined when calling apiPlanetsIdPut.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -350,8 +350,8 @@ export class PlanetService {
             }
         }
 
-        let localVarPath = `/api/planets/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})})`;
-        return this.httpClient.request<PlanetDto>('patch', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/api/planets/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
+        return this.httpClient.request<PlanetDto>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: updatePlanetDto,

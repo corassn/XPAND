@@ -4,7 +4,7 @@ import { PlanetService } from "../../shared/_services/planet.service";
 import * as StateActions from './state.actions';
 import { catchError, map, switchMap } from "rxjs";
 import { PlanetsState } from "./state.models";
-import { State, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 
 @Injectable()
 export class PlanetsStateEffects {

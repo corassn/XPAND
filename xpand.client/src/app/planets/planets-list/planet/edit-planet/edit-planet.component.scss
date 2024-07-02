@@ -1,0 +1,33 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    .form-control {
+        display: flex;
+        margin: 1rem 0 1rem 0;
+
+        .description {
+            border-radius: 8px;
+            padding: 0.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .status {
+            border-radius: 8px;
+            border-width: 1px;
+            margin-left: 0.5rem;
+        }
+    }
+
+    hr {
+        height: 0.01rem;
+        margin: 2rem;
+        width: 90%;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+}

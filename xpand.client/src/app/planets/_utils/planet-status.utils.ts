@@ -1,5 +1,5 @@
 import { PlanetStatus } from "../../../../openapi";
-import { EN_ROUTE, NOT_OK, OK, TO_DO } from "../_constants/planet.constants";
+import { BLUE_CSS_CLASS, EN_ROUTE, GREEN_CSS_CLASS, GREY_CSS_CLASS, NOT_OK, OK, RED_CSS_CLASS, TO_DO } from "../_constants/planet.constants";
 
 export class PlanetStatusUtils {
     static getPlanetStatusDescription(status: PlanetStatus): string {
@@ -18,13 +18,20 @@ export class PlanetStatusUtils {
     static getPlanetStatusCssClass(status: PlanetStatus): string {
         switch(status) {
             case PlanetStatus.EnRoute:
-                return 'blue';
+                return BLUE_CSS_CLASS;
             case PlanetStatus.ToDo:
-                return 'grey';
+                return GREY_CSS_CLASS;
             case PlanetStatus.OK:
-                return 'green';
+                return GREEN_CSS_CLASS;
             case PlanetStatus.Not_OK:
-                return 'red';
+                return RED_CSS_CLASS;
         }
     }
 }
+
+export const PLANET_STATUSES: { key: number, value: string }[] = [
+    { key: PlanetStatus.ToDo, value: PlanetStatusUtils.getPlanetStatusDescription(PlanetStatus.ToDo) },
+    { key: PlanetStatus.EnRoute, value: PlanetStatusUtils.getPlanetStatusDescription(PlanetStatus.EnRoute) },
+    { key: PlanetStatus.OK, value: PlanetStatusUtils.getPlanetStatusDescription(PlanetStatus.OK) },
+    { key: PlanetStatus.Not_OK, value: PlanetStatusUtils.getPlanetStatusDescription(PlanetStatus.Not_OK) }
+  ]

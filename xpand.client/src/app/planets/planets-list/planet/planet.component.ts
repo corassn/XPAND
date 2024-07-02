@@ -18,8 +18,8 @@ export class PlanetComponent implements OnInit, OnDestroy {
   noDescriptionText = 'No description yet!';
   status: string = '';
   cssClass: string = '';
-  robotNames: string[] = [];
-  captainName: string = '';
+  robotNames?: string[];
+  captainName?: string;
   //a loading spinner would be great as future improvement
 
   subscription: Subscription = new Subscription();
@@ -27,7 +27,6 @@ export class PlanetComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private planetsFacade: PlanetsFacade,
     private planetService: PlanetService,
     private teamService: TeamService) { }
 
@@ -42,21 +41,33 @@ export class PlanetComponent implements OnInit, OnDestroy {
   getPlanetDetails(): void {
     const planetId = this.route.snapshot.paramMap.get('id');
 
-    this.subscription.add(this.planetsFacade.planets$.subscribe((planets) => {
-      this.planet = planets?.find((p) => p.id == planetId);
+    if (!planetId) {
+      return;
+    }
 
-      if (this.planet) {
-        this.status = PlanetStatusUtils.getPlanetStatusDescription(this.planet.status);
-        this.cssClass = PlanetStatusUtils.getPlanetStatusCssClass(this.planet.status);
-      }
+    this.subscription.add(
+      this.planetService.getPlanetById(planetId).subscribe({
+        next: result => {
+          this.planet = result;
 
-      if (this.planet?.teamId) {
-        this.getRobotsInvolved(this.planet?.teamId);
-      }
-    }));
+          if (this.planet) {
+            this.status = PlanetStatusUtils.getPlanetStatusDescription(this.planet.status);
+            this.cssClass = PlanetStatusUtils.getPlanetStatusCssClass(this.planet.status);
+          }
+
+          if (this.planet?.teamId) {
+            this.getRobotsInvolved(this.planet.teamId);
+            this.getCaptainInvolved(this.planet.teamId);
+          }
+        },
+        error: error => {
+          console.error('Error while fetching planet: ', error);
+        }
+      })
+    );
   }
 
-  getRobotsInvolved(teamId: string): void {
+  getCaptainInvolved(teamId: string): void {
     this.subscription.add(
       this.teamService.getCaptainByTeamId(teamId).subscribe({
         next: result => {
@@ -69,7 +80,7 @@ export class PlanetComponent implements OnInit, OnDestroy {
     );
   }
 
-  getCaptainInvolved(teamId: string): void {
+  getRobotsInvolved(teamId: string): void {
     this.subscription.add(
       this.teamService.getRobotsByTeamId(teamId).subscribe({
         next: result => {

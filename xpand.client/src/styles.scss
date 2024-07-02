@@ -12,19 +12,19 @@ body {
 }
 
 .planet-status {
-    &.blue {
+    &.blue-text {
         color: $blue-en-route;
     }
 
-    &.grey {
+    &.grey-text {
         color: $grey-todo;
     }
 
-    &.green {
+    &.green-text {
         color: $green-ok;
     }
 
-    &.red {
+    &.red-text {
         color: $red-not-ok;
     }
 }

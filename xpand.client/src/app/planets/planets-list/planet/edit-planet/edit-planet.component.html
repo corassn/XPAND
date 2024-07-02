@@ -1,1 +1,22 @@
-<p>edit-planet works!</p>
+<div *ngIf="planet" class="content">
+  <div><b>{{planet.name | uppercase}}</b></div>
+  <form #editForm="ngForm" (ngSubmit)="submitForm(editForm)" class="form">
+    <div class="form-control">
+      <label>Description:</label>
+      <textarea name="description" id="description" [(ngModel)]="planet.description" resize="true" class="description">
+    </textarea>
+    </div>
+
+    <div class="form-control">
+      <label>Status:</label>
+      <select name="status" [(ngModel)]="planet.status" id="status" class="status" required>
+        <option *ngFor="let status of planetStatuses" [ngValue]="status.key">{{ status.value }}</option>
+      </select>
+    </div>
+    <hr>
+    <div class="actions">
+      <button mat-raised-button type="submit">Update Planet</button>
+      <button mat-raised-button (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+</div>
