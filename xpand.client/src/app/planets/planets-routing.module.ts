@@ -7,15 +7,11 @@ import { EditPlanetComponent } from "./planets-list/planet/edit-planet/edit-plan
 
 const routes: Routes = [
   {
-    path: '',
-    component: PlanetsListComponent,
-  },
-  {
     path: 'planets',
     component: PlanetsListComponent,
   },
   {
-    path: 'add',
+    path: 'planets/add',
     component: AddPlanetComponent,
   },
   {

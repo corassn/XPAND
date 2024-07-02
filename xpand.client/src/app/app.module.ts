@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { PlanetsModule } from './planets/planets.module';
 import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core/core.module';
-import { UserMenuComponent } from './user-menu/user-menu.component';
+import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({

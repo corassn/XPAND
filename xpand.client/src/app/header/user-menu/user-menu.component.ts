@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'user-menu',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class UserMenuComponent {
 
+constructor(private router: Router) {
+}
+
+  navigateToAddPlanet(): void {
+    this.router.navigate(["planets/add"]);
+  }
 }
