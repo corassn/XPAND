@@ -7,6 +7,9 @@ namespace XPAND.Server.Models
     [BsonCollection("Teams")]
     public class Team : BaseDocument
     {
+        [BsonElement("userId")]
+        public ObjectId UserId { get; set; }
+
         [BsonElement("captainId")]
         public string CaptainId { get; set; }
 

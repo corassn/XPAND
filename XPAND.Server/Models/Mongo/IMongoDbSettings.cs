@@ -1,4 +1,4 @@
-﻿namespace XPAND.Server.Mongo.Configuration
+﻿namespace XPAND.Server.Models.Mongo
 {
     public interface IMongoDbSettings
     {

@@ -1,10 +1,9 @@
-﻿using MongoDB.Bson;
-using SharpCompress.Common;
-using System.Numerics;
+﻿using Microsoft.AspNetCore.Identity;
 using XPAND.Server.Models;
+using XPAND.Server.Models.DataSeed;
 using XPAND.Server.Mongo.Repository;
-using XPAND.Server.Mongo.SeedData.PathConfig;
 using JsonConvert = Newtonsoft.Json.JsonConvert;
+using MongoDB.Bson;
 
 namespace XPAND.Server.Mongo.SeedData
 {
@@ -14,6 +13,7 @@ namespace XPAND.Server.Mongo.SeedData
         private readonly IMongoRepository<Team> _teamRepository;
         private readonly IMongoRepository<Captain> _captainRepository;
         private readonly IMongoRepository<Robot> _robotRepository;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IWebHostEnvironment _env;
         private readonly IDataSeedSettings _seedSettings;
         private readonly ILogger<IDataSeeder> _logger;
@@ -25,7 +25,8 @@ namespace XPAND.Server.Mongo.SeedData
             ILogger<IDataSeeder> logger,
             IMongoRepository<Robot> robotRepository,
             IMongoRepository<Captain> captainRepository,
-            IMongoRepository<Team> teamRepository
+            IMongoRepository<Team> teamRepository,
+            UserManager<AppUser> userManager
             )
         {
             _planetRepository = planetRepository;
@@ -35,6 +36,7 @@ namespace XPAND.Server.Mongo.SeedData
             _seedSettings = seedSettings;
             _env = env;
             _logger = logger;
+            _userManager = userManager;
         }
 
         public async Task SeedPlanetsAsync()
@@ -122,6 +124,61 @@ namespace XPAND.Server.Mongo.SeedData
             catch (Exception ex)
             {
                 _logger.LogError(ex, "[Teams] An error occurred during data seeding.");
+            }
+        }
+
+        public async Task SeedUsersAsync()
+        {
+            try
+            {
+                if (_userManager.Users.Any())
+                {
+                    _logger.LogInformation("Users already exist in the database. Seeding skipped.");
+                    return;
+                }
+
+                var filePath = Path.Combine(_env.ContentRootPath, _seedSettings.UsersSeedPath);
+                var jsonData = await File.ReadAllTextAsync(filePath);
+                var users = JsonConvert.DeserializeObject<List<AppUser>>(jsonData);
+                var teams = await _teamRepository.GetAllAsync();
+
+                for (int i = 0; i < users.Count; i++)
+                {
+                    var appUser = new AppUser
+                    {
+                        Name = users[i].Name,
+                        UserName = users[i].UserName,
+                        Email = users[i].Email,
+                        TeamId = teams[i].Id
+                    };
+
+                    await _userManager.CreateAsync(appUser, "User@42");
+                }
+
+                await UpdateTeamUserId();
+
+                _logger.LogInformation("[Users] Data seeding completed successfully.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[Users] An error occurred during data seeding.");
+            }
+        }
+
+        private async Task UpdateTeamUserId()
+        {
+            var users = _userManager.Users;
+            var teams = await _teamRepository.GetAllAsync();
+
+            foreach (var team in teams)
+            {
+                var matchingUser = users.FirstOrDefault(u => u.TeamId == team.Id);
+
+                if (matchingUser != null)
+                {
+                    team.UserId = matchingUser.Id;
+                    await _teamRepository.ReplaceAsync(team);
+                }
             }
         }
     }

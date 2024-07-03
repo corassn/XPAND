@@ -13,6 +13,7 @@ namespace XPAND.Server.MappingProfiles
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                     .ForMember(dest => dest.CaptainId, opt => opt.MapFrom(src => src.CaptainId))
                     .ForMember(dest => dest.RobotIds, opt => opt.MapFrom(src => src.RobotIds))
+                    .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
                     .ReverseMap();
         }
     }

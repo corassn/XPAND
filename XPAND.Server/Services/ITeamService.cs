@@ -7,5 +7,8 @@ namespace XPAND.Server.Services
         Task<List<RobotDto>> GetRobotsByTeamId(string teamId);
 
         Task<CaptainDto> GetCaptainByTeamId(string teamId);
+
+        //Task<TeamDto> CreateTeam(...)
+
     }
 }

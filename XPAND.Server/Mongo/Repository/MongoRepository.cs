@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 using XPAND.Server.Models;
-using XPAND.Server.Mongo.Configuration;
+using XPAND.Server.Models.Mongo;
 
 namespace XPAND.Server.Mongo.Repository.Implementation
 {

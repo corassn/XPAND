@@ -1,11 +1,13 @@
-﻿namespace XPAND.Server.Mongo.SeedData.PathConfig
+﻿namespace XPAND.Server.Models.DataSeed
 {
-    public interface IDataSeedSettings
+    public class DataSeedSettings : IDataSeedSettings
     {
         public string PlanetsSeedPath { get; set; }
 
         public string CaptainsSeedPath { get; set; }
 
         public string RobotsSeedPath { get; set; }
+
+        public string UsersSeedPath { get; set; }
     }
 }
