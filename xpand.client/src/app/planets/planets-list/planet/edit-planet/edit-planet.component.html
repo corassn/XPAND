@@ -1,6 +1,6 @@
 <div *ngIf="planet" class="content">
   <div><b>{{planet.name | uppercase}}</b></div>
-  <form #editForm="ngForm" (ngSubmit)="submitForm(editForm)" class="form">
+  <form #editForm="ngForm" (ngSubmit)="submit()" class="form">
     <div class="form-control">
       <label>Description:</label>
       <textarea name="description" id="description" [(ngModel)]="planet.description" resize="true" class="description">

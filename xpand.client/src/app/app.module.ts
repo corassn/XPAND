@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoreModule } from './core/core.module';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
     MatMenuModule,
     BrowserAnimationsModule,
     SharedModule,
+    AuthModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

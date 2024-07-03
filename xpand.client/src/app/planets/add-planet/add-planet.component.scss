@@ -1,0 +1,65 @@
+@import '../../../colors.scss';
+@import '../../../typography.scss';
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    .form-control {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1rem 0 1rem 0;
+
+        .description {
+            border-radius: 8px;
+            padding: 0.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .status,
+        .name {
+            border-radius: 8px;
+            border-width: 1px;
+            margin-left: 0.5rem;
+        }    
+    }
+
+    .error {
+        @extend .text-sm;
+        color: $red;
+        display: flex;
+        align-items: center;
+        margin-top: -1rem;
+    }
+
+    hr {
+        height: 0.01rem;
+        margin: 2rem;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+// /* for tablets */
+// @media (min-width: 600px) and (max-width: 900px) {
+//     .content {
+//         .form-control {
+//             .error {
+//                 padding-left: 1rem;
+//             }
+//         }
+//     }
+// }
+
+// /* for laptops or larger screens */
+// @media (min-width: 900px) {
+//     .content {
+//         .form-control {
+//             .error {}
+//         }
+//     }
+// }

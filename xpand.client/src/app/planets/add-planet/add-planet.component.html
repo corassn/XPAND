@@ -1,22 +1,33 @@
-<div class="content">poopy
-    <!-- <div><b>Add planet</b></div>
+<div class="content">
+    <div><b>Add planet</b></div>
     <form #addForm="ngForm" (ngSubmit)="submitForm(addForm)" class="form">
-      <div class="form-control">
-        <label>Description:</label>
-        <textarea name="description" id="description" [(ngModel)]="planet.description" resize="true" class="description">
+        <div class="form-control">
+            <label>Name*:</label>
+            <input name="name" id="name" ngModel resize="true" class="description" class="name" required>
+        </div>
+        <div class="error" *ngIf="addForm.submitted && !addForm.controls['name'].valid">
+            Name is required.
+        </div>
+
+        <div class="form-control">
+            <label>Description:</label>
+            <textarea name="description" id="description" ngModel resize="true" class="description">
       </textarea>
-      </div>
-  
-      <div class="form-control">
-        <label>Status:</label>
-        <select name="status" [(ngModel)]="planet.status" id="status" class="status" required>
-          <option *ngFor="let status of planetStatuses" [ngValue]="status.key">{{ status.value }}</option>
-        </select>
-      </div>
-      <hr>
-      <div class="actions">
-        <button mat-raised-button type="submit">Update Planet</button>
-        <button mat-raised-button (click)="cancelEdit()">Cancel</button>
-      </div>
-    </form> -->
-  </div>
+        </div>
+
+        <div class="form-control">
+            <label>Status*:</label>
+            <select name="status" ngModel id="status" class="status" required>
+                <option *ngFor="let status of planetStatuses" [ngValue]="status.key">{{ status.value }}</option>
+            </select>
+        </div>
+        <div class="error" *ngIf="addForm.submitted && !addForm.controls['status'].valid">
+            Status is required.
+        </div>
+        <hr>
+        <div class="actions">
+            <button mat-raised-button type="submit">Add Planet</button>
+            <button mat-raised-button (click)="cancelAdd()">Cancel</button>
+        </div>
+    </form>
+</div>

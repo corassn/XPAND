@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Planet } from '../../../_interfaces/planet.interface';
 import { Subscription } from 'rxjs';
-import { NgForm } from '@angular/forms';
 import { UpdatePlanet } from '../../../_interfaces/update-planet.interface';
 import { Location } from '@angular/common';
 import { PlanetService } from '../../../../shared/_services/planet.service';
@@ -22,7 +21,6 @@ export class EditPlanetComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private location: Location,
     private planetService: PlanetService) { }
 
@@ -54,11 +52,11 @@ export class EditPlanetComponent implements OnInit, OnDestroy {
     );
   }
 
-  submitForm(form: NgForm): void {
+  submit(): void {
     const updateRequest: UpdatePlanet = {
       planetId: this.planet?.id || '',
-      status: form.value.status || PlanetStatus.ToDo,
-      description: form.value.description,
+      status: this.planet?.status || PlanetStatus.ToDo,
+      description: this.planet?.description,
       teamId: ''
     }
 

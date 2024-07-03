@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.showBackIcon = !(
             event.urlAfterRedirects === '/planets' ||
             event.urlAfterRedirects === '/' ||
-            event.urlAfterRedirects.includes('/edit'));
+            event.urlAfterRedirects.includes('/edit') ||
+            event.urlAfterRedirects.includes('/add'));
         }
       })
     );
