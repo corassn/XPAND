@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlanetsModule } from '../app/planets/planets.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'planets',
-  },
-  {
     path: 'planets',
-    loadChildren: () => import('../app/planets/planets.module').then(m => m.PlanetsModule)
+    loadChildren: () => import('../app/planets/planets.module').then(m => m.PlanetsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('../app/auth/auth.module').then(m => m.AuthModule)
   },
-  { path: '**', redirectTo: 'planets' }
+  {
+    path: '**',
+    redirectTo: 'planets',
+  }
 ];
 
 @NgModule({

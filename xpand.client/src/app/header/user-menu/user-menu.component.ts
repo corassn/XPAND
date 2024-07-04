@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/_services/auth.service';
 
 @Component({
   selector: 'user-menu',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class UserMenuComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
   navigateToAddPlanet(): void {

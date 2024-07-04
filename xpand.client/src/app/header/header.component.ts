@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   showBackIcon: boolean = true;
-  currentUser: boolean = false;
 
   subscription = new Subscription();
 

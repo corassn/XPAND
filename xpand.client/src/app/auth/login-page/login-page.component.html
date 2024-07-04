@@ -3,7 +3,7 @@
     <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" class="form">
         <div class="form-control">
             <label>User name:</label>
-            <input name="userName" id="userName" ngModel resize="true" class="userName" class="username-input" required>
+            <input name="userName" id="userName" [(ngModel)]="userName" resize="true" class="userName" class="username-input" required>
             <div class="error" *ngIf="loginForm.submitted && !loginForm.controls['userName'].valid">
                 User name is required.
             </div>
@@ -11,7 +11,7 @@
 
         <div class="form-control">
             <label>Password:</label>
-            <input name="password" id="password" ngModel resize="true" class="description" class="password-input" required>
+            <input name="password" id="password" [(ngModel)]="password" resize="true" class="password-input" required type="password">
             <div class="error" *ngIf="loginForm.submitted && !loginForm.controls['password'].valid">
                 Password is required.
             </div>

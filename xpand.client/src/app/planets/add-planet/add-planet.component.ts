@@ -26,9 +26,10 @@ export class AddPlanetComponent implements OnDestroy {
 
   submitForm(form: NgForm): void {
     if (form.invalid) {
+      form.reset();
       return;
     }
-    
+
     const addRequest: AddPlanet = {
       name: form.value.name,
       status: form.value.status || PlanetStatus.ToDo,
