@@ -7,6 +7,8 @@ import { Location } from '@angular/common';
 import { PlanetService } from '../../../../shared/_services/planet.service';
 import { PlanetStatus } from '../../../../../../openapi';
 import { PLANET_STATUSES } from '../../../_utils/planet-status.utils';
+import { User } from '../../../../auth/_interfaces/user.interface';
+import { AuthService } from '../../../../shared/_services/auth.service';
 
 @Component({
   selector: 'app-edit-planet',
@@ -17,14 +19,21 @@ export class EditPlanetComponent implements OnInit, OnDestroy {
   planet?: Planet;
   planetId: string = '';
   planetStatuses = PLANET_STATUSES;
+  currentUser?: User | null;
+
   subscription: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private planetService: PlanetService) { }
+    private planetService: PlanetService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.subscription.add(
+      this.authService.currentUser$.subscribe(user => this.currentUser = user)
+    );
+
     this.getPlanet();
   }
 
@@ -57,7 +66,7 @@ export class EditPlanetComponent implements OnInit, OnDestroy {
       planetId: this.planet?.id || '',
       status: this.planet?.status || PlanetStatus.ToDo,
       description: this.planet?.description,
-      teamId: ''
+      teamId: this.currentUser?.teamId
     }
 
     this.subscription.add(

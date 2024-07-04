@@ -9,7 +9,15 @@
     <div *ngIf="planet.description; else noDescription" class="section middle">
         <mat-card-content>
             <div class="description">"{{planet.description}}"</div>
-            <!-- <div>{{planet.robots}}</div> -->
+            <div *ngIf="captainName" class="captain"><b>by </b>{{captainName}}</div>
+            <div *ngIf="robotNames" class="robots">
+                <b>Robots:</b>
+                <span *ngFor="let robot of robotNames; let last = last">
+                    {{ robot }}
+                    <ng-container *ngIf="!last">, </ng-container>
+                </span> 
+                <span>.</span>
+            </div>
         </mat-card-content>
     </div>
     <ng-template #noDescription>

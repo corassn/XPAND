@@ -45,6 +45,10 @@
                 text-overflow: ellipsis;
                 text-align: justify;
             }
+
+            .captain, .robots {
+                @extend .text-xs;
+            }
         }
 
         &.right {
