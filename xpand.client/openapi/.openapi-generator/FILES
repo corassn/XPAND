@@ -1,6 +1,7 @@
 .gitignore
 README.md
 api.module.ts
+api/account.service.ts
 api/api.ts
 api/planet.service.ts
 api/team.service.ts
@@ -10,10 +11,13 @@ git_push.sh
 index.ts
 model/add-planet-dto.ts
 model/captain-dto.ts
+model/login-dto.ts
 model/models.ts
+model/object-id.ts
 model/planet-dto.ts
 model/planet-status.ts
 model/robot-dto.ts
 model/update-planet-dto.ts
+model/user-dto.ts
 param.ts
 variables.ts

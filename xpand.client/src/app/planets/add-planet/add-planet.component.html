@@ -3,7 +3,7 @@
     <form #addForm="ngForm" (ngSubmit)="submitForm(addForm)" class="form">
         <div class="form-control">
             <label>Name*:</label>
-            <input name="name" id="name" ngModel resize="true" class="description" class="name" required>
+            <input name="name" id="name" ngModel resize="true" class="name-input" required>
         </div>
         <div class="error" *ngIf="addForm.submitted && !addForm.controls['name'].valid">
             Name is required.
@@ -11,13 +11,13 @@
 
         <div class="form-control">
             <label>Description:</label>
-            <textarea name="description" id="description" ngModel resize="true" class="description">
+            <textarea name="description" id="description" ngModel resize="true" class="description-input">
       </textarea>
         </div>
 
         <div class="form-control">
             <label>Status*:</label>
-            <select name="status" ngModel id="status" class="status" required>
+            <select name="status" ngModel id="status" class="status-input" required>
                 <option *ngFor="let status of planetStatuses" [ngValue]="status.key">{{ status.value }}</option>
             </select>
         </div>

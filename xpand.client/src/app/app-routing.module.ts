@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlanetsModule } from '../app/planets/planets.module';
+import { AuthModule } from './auth/auth.module';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'planets',
     loadChildren: () => import('../app/planets/planets.module').then(m => m.PlanetsModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('../app/auth/auth.module').then(m => m.AuthModule)
   },
   { path: '**', redirectTo: 'planets' }
 ];

@@ -7,6 +7,6 @@ namespace XPAND.Server.Services
     {
         Task<UserDto> RegisterUserAsync(RegisterDto registerDto);
 
-        Task<UserDto> LoginUserAsync(LoginDto loginDto);
+        Task<UserDto> LoginUserAsync(string userName, string password);
     }
 }

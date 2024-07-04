@@ -3,13 +3,13 @@
   <form #editForm="ngForm" (ngSubmit)="submit()" class="form">
     <div class="form-control">
       <label>Description:</label>
-      <textarea name="description" id="description" [(ngModel)]="planet.description" resize="true" class="description">
+      <textarea name="description" id="description" [(ngModel)]="planet.description" resize="true" class="description-input">
     </textarea>
     </div>
 
     <div class="form-control">
       <label>Status:</label>
-      <select name="status" [(ngModel)]="planet.status" id="status" class="status" required>
+      <select name="status" [(ngModel)]="planet.status" id="status" class="status-input" required>
         <option *ngFor="let status of planetStatuses" [ngValue]="status.key">{{ status.value }}</option>
       </select>
     </div>

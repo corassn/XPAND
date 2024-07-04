@@ -155,7 +155,7 @@ namespace XPAND.Server.Mongo.SeedData
                     await _userManager.CreateAsync(appUser, "User@42");
                 }
 
-                await UpdateTeamUserId();
+                await UpdateTeamUserIds();
 
                 _logger.LogInformation("[Users] Data seeding completed successfully.");
             }
@@ -165,7 +165,7 @@ namespace XPAND.Server.Mongo.SeedData
             }
         }
 
-        private async Task UpdateTeamUserId()
+        private async Task UpdateTeamUserIds()
         {
             var users = _userManager.Users;
             var teams = await _teamRepository.GetAllAsync();

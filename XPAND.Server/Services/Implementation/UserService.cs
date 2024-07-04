@@ -33,15 +33,15 @@ namespace XPAND.Server.Services.Implementation
             _mapper = mapper;
         }
 
-        public async Task<UserDto> LoginUserAsync(LoginDto loginDto)
+        public async Task<UserDto> LoginUserAsync(string userName, string password)
         {
             try
             {
-                var result = await _signInManager.PasswordSignInAsync(loginDto.UserName, loginDto.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(userName, password, false, false);
 
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync(loginDto.UserName);
+                    var user = await _userManager.FindByNameAsync(userName);
 
                     if (user == null)
                     {

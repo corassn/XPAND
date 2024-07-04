@@ -1,0 +1,27 @@
+<div class="content">
+    <div class="title"><b>Welcome explorer!</b></div>
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)" class="form">
+        <div class="form-control">
+            <label>User name:</label>
+            <input name="userName" id="userName" ngModel resize="true" class="userName" class="username-input" required>
+            <div class="error" *ngIf="loginForm.submitted && !loginForm.controls['userName'].valid">
+                User name is required.
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label>Password:</label>
+            <input name="password" id="password" ngModel resize="true" class="description" class="password-input" required>
+            <div class="error" *ngIf="loginForm.submitted && !loginForm.controls['password'].valid">
+                Password is required.
+            </div>
+        </div>
+
+        <div class="actions">
+            <button mat-raised-button type="submit">Log In</button>
+        </div>
+    </form>
+    <div>
+        <img src="./assets/images/logo.svg" alt="XPAND">
+    </div>
+</div>
